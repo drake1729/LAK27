@@ -1,2 +1,2 @@
 # LAK_27
-Supplementary material for AIML_Systems Conference 2026
+Supplementary material for LAK Conference 2027
