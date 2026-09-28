@@ -1,21 +1,3 @@
-# ============================================================
-# IO-BKT MULTIVARIATE (P=14), 48 EPISODES, SWAP-FIXED, FULL SAVE
-# ============================================================
-#   - Full multivariate model only (13 features + intercept)
-#   - Episode 49 (constructivist vignette) excluded -- E=48
-#   - Label-switching corrected via SWAP (b_on <-> b_off), the
-#     mathematically verified fix (log-likelihood invariance
-#     test: swap diff -9.4 vs. negation diff -16,156)
-#   - Convergence threshold <1.01 on r-hat, checked on the
-#     CORRECTED posterior
-#   - Saves b_on, b_off, pS, pG, pi0, u_cell, sigma_cell, AND
-#     the {(subject, grade): cell_index} mapping used to build
-#     cell_idx, so any downstream script (e.g. the knowledge-
-#     change-curves plot) indexes u_cell against the SAME cells
-#     this run actually fit, instead of silently rebuilding its
-#     own (possibly different) mapping.
-# ============================================================
-
 import os
 N_CHAINS = min(2, os.cpu_count() or 2)
 print(f"CPU cores detected: {os.cpu_count()}. Using N_CHAINS={N_CHAINS}")
