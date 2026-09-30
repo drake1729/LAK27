@@ -1,6 +1,6 @@
 # What Moves the Classroom? A Bayesian Latent-State Model of Pedagogy and 21st-Century Skills in Whole-Classroom Discourse
 
-This repository accompanies the paper of the same title (LAK27). It contains the code, extended results, and expert-validation materials needed to inspect and reproduce the analyses reported therein.
+This repository accompanies the paper of the same title. It contains the code, extended results, documentation images and expert-validation materials needed to inspect and reproduce the analyses reported therein.
 
 ## Overview
 
