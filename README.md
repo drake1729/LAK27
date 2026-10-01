@@ -2,12 +2,18 @@
 
 This repository accompanies the paper of the same title. It contains the code, extended results, documentation images and expert-validation materials needed to inspect and reproduce the analyses reported therein.
 
+> [!IMPORTANT]
+> **Data release and ethics statement**
+>
+> - 📂 **Data availability:** If the paper is published, all data accompanying this work will be made publicly available.
+> - ✅ **Ethics:** The ethical norms of the institute have been followed in the collection and use of this data.
+
 ## Overview
 
-Bayesian Knowledge Tracing (BKT) models the evolving mastery of an individual learner. The present work extends this line of research to whole-classroom discourse, where a teacher's pedagogical choices shape the learning conditions of all students simultaneously. We treat classroom talk as evidence of a latent, time-varying *productive-discourse regime*, defined as a state in which 21st-century skills (21CS) are active at the classroom level, and we refer to this approach as discourse-level pedagogical state tracking. The framework comprises three models that span a tractability-expressiveness spectrum.
+Bayesian Knowledge Tracing (BKT) models the evolving mastery of an individual learner. The present work extends this line of research to whole-classroom discourse, where a teacher's pedagogical choices shape the learning conditions of all students simultaneously. We treat classroom talk as evidence of a latent, time-varying productive-discourse regime, defined as a state in which 21st-century skills (21CS) are active at the classroom level, and we refer to this approach as discourse-level pedagogical state tracking. The framework comprises three models that span a tractability-expressiveness spectrum.
 
 | Model | Specification | Research question |
-|-------|---------------|-------------------|
+|---|---|---|
 | BLFM (Bayesian Latent Factor Model) | Exchangeable; episode-level feature means predict the episode 21CS rate | RQ1a |
 | PST (Probabilistic Skill Tracing) | Two-state hidden Markov model (HMM) with fixed transitions and no content features | RQ1b |
 | IO-BKT (Input-Output BKT) | HMM whose ignition and dropout transitions depend on pedagogical covariates | RQ1c |
@@ -75,7 +81,7 @@ The principal dependencies are NumPyro and JAX (a GPU build is recommended for P
 The corpus consists of 48 classroom episodes (Grades 6 to 12; Science and Mathematics; approximately 23 hours) comprising 19,141 transcribed lines, each annotated by trained raters. Each row of the annotation file corresponds to one utterance and contains the fields listed below.
 
 | Field | Description |
-|-------|-------------|
+|---|---|
 | `episode_id`, `line_idx` | Episode identifier and position of the line within the episode |
 | `speaker` | Teacher (Speaker1), student (Speaker2), or joint |
 | `subject`, `grade` | Determine the Subject x Grade cell (13 cells) used for the random effect |
@@ -84,9 +90,9 @@ The corpus consists of 48 classroom episodes (Grades 6 to 12; Science and Mathem
 | `CP_Rem`, `CP_Und`, `CP_App`, `CP_Ana`, `CP_Eva`, `CP_Cre` | Cognitive process: remembering through creating (binary) |
 | `O` | Outcome; equals 1 if problem solving, creativity, collaborative learning, or critical thinking is active on the line |
 
-The covariate vector is `z_t = [EP || KD || CP || 1]`, a 14-dimensional binary vector that includes the intercept.
+The covariate vector is z_t = [EP || KD || CP || 1], a 14-dimensional binary vector that includes the intercept.
 
-*Data availability.* [To be completed by the authors: state whether the transcripts are released in full, in de-identified form, or on request.]
+**Data availability.** If the paper is published, all data will be made public. The ethical norms of the institute have been followed.
 
 ## Usage
 
@@ -137,9 +143,9 @@ python scripts/make_figures.py
 
 The lag analysis pairs each student turn with the immediately preceding teacher move (n = 4,120 pairs) and estimates the probability of student 21CS conditional on that move. Figures are written to `results/figures/`.
 
-### Expert validation (RQ2)
+## Expert validation (RQ2)
 
-The `expert_validation/` directory contains the materials for the study with ten secondary Science and Mathematics teachers. Three de-identified clips of four to five minutes were selected using the filtered probability of the productive state under IO-BKT. For each clip, three *true* notes were derived from coefficients that passed the reliability pipeline and were grounded in a verbatim line of the segment. Each was paired with a *foil* note that used the same segment and vocabulary but stated the opposite direction of a credible coefficient. `case_mapping.csv` records the eight recommendation types, which follow from whether a feature is present or absent and from the role of its coefficient.
+The `expert_validation/` directory contains the materials for the study with ten secondary Science and Mathematics teachers. Three de-identified clips of four to five minutes were selected using the filtered probability of the productive state under IO-BKT. For each clip, three true notes were derived from coefficients that passed the reliability pipeline and were grounded in a verbatim line of the segment. Each was paired with a foil note that used the same segment and vocabulary but stated the opposite direction of a credible coefficient. `case_mapping.csv` records the eight recommendation types, which follow from whether a feature is present or absent and from the role of its coefficient.
 
 Each teacher completed four steps per clip: independent advice, forced choice among the true note, the foil, and a "neither" option, a reveal, and ratings of understandability and likelihood of use on five-point scales. A second coder, blind to card identity, scored each teacher's independent advice against both notes on a three-point rubric (2 = same feature or clear synonym; 1 = same general direction; 0 = unrelated or contradictory). The analysis is reproduced with
 
