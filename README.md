@@ -5,7 +5,7 @@ This repository accompanies the paper of the same title. It contains the code, e
 > [!IMPORTANT]
 > **Data release and ethics statement**
 >
-> -**Data availability:** If the paper is published, all data accompanying this work will be made publicly available.
+> - **Data availability:** If the paper is published, all data accompanying this work will be made publicly available.
 > - **Ethics:** The ethical norms of the institute have been followed in the collection and use of this data.
 
 ## Overview
