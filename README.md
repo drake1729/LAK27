@@ -176,4 +176,4 @@ The data originate from a single school over three months and are dominated by b
 
 ## License and Contact
 
-This repository is distributed under the license given in `LICENSE`. Correspondence should be addressed to the corresponding author (somebody@gmail.com) or raised as a GitHub issue.
+This repository is distributed under the license given in `LICENSE`. Correspondence should be addressed to the corresponding author (viveku@iisc.ac.in) or raised as a GitHub issue.
